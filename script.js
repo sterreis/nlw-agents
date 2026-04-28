@@ -11,10 +11,8 @@ const markdownToHTML = (text) => {
 }
 
 const perguntarAI = async (question, game, apiKey) => {
-    const model = "gemini-1.5-pro"
-
     const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
         {
             method: "POST",
             headers: {
@@ -24,7 +22,7 @@ const perguntarAI = async (question, game, apiKey) => {
                 contents: [{
                     role: "user",
                     parts: [{
-                        text: "Responda apenas: funcionando"
+                        text: question
                     }]
                 }]
             })
@@ -32,7 +30,6 @@ const perguntarAI = async (question, game, apiKey) => {
     )
 
     const data = await response.json()
-
     console.log("STATUS:", response.status)
     console.log("DATA:", data)
 
