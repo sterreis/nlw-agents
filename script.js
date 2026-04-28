@@ -12,7 +12,7 @@ const markdownToHTML = (text) => {
 
 const perguntarAI = async (question, game, apiKey) => {
     const model = "gemini-3.1-flash-lite"
-    const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
+    const geminiURL = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${apiKey}`
     const pergunta = `
     ## Especialidade
     Você é um especialista assistente de meta para o jogo ${game}
@@ -46,11 +46,7 @@ const perguntarAI = async (question, game, apiKey) => {
             text: pergunta
         }]
     }]
-
-    const tools = [{
-        google_search: {}
-    }]
-
+  
     // chamada API
     const response = await fetch(geminiURL, {
         method: 'POST',
@@ -59,7 +55,6 @@ const perguntarAI = async (question, game, apiKey) => {
         },
         body: JSON.stringify({
             contents,
-            tools
         })
     })
 
