@@ -6,7 +6,6 @@ Você escolhe o jogo, faz uma pergunta e recebe uma resposta gerada por IA com s
 
 #### Como usar
 Gere sua API Key do Gemini em: https://aistudio.google.com/api-keys
-
 Depois, no projeto, basta colar a API Key no campo indicado, escolher o jogo, fazer sua pergunta (ex: melhor build para ADC) e clicar em Perguntar.
 
 #### Sobre a API Key
